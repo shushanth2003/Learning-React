@@ -199,3 +199,44 @@ Historically, React had two main types of components:
 Class Components: These are JavaScript classes that extend React.Component. They were traditionally used when you needed to manage state or lifecycle methods.
 
 Functional Components: These are simple JavaScript functions that return JSX (React's syntax extension for UI). With the introduction of React Hooks (in React 16.8), functional components can now manage state and side effects, making them the preferred way to write components for most use cases today.
+
+In templating, a **dynamic value** is data that changes or is generated at runtime, rather than being fixed or hard-coded. It allows you to display personalized or up-to-date information within a pre-defined structure.
+
+-----
+
+## How it Works
+
+Instead of writing something like `Hello, John!`, where "John" is always the same, you use a placeholder in your template, for example, `Hello, {{name}}!`. When the template is processed, `{{name}}` is replaced with the actual name retrieved from a data source (like a database, an API, or user input).
+
+### Simple Analogy
+
+Think of a **form letter**. The main body of the letter (the template) is fixed, but specific details like the recipient's name, address, or the date are **dynamic**. You have placeholders like `[Recipient Name]` that are filled in with different values for each individual letter.
+
+### In React (JSX)
+
+In React's JSX, you embed dynamic values using **curly braces `{}`**. Anything inside these braces will be evaluated as a JavaScript expression.
+
+```jsx
+function UserProfile({ userName, score }) {
+  return (
+    <div>
+      {/* userName and score are dynamic values */}
+      <h1>Welcome, {userName}!</h1>
+      <p>Your current score is: {score}</p>
+      {/* You can also use JavaScript expressions inside {} */}
+      <p>Next level in: {100 - score} points</p>
+    </div>
+  );
+}
+```
+
+In this example, `userName` and `score` are dynamic values passed to the `UserProfile` component. The output will change depending on the values provided.
+
+-----
+
+## Why Use Dynamic Values?
+
+  * **Personalization:** Display user-specific data (e.g., "Welcome, [User's Name]").
+  * **Real-time Data:** Show up-to-date information (e.g., current stock prices, weather).
+  * **Flexibility:** Create single templates that can render many variations of content.
+  * **Data-Driven UIs:** Build user interfaces where the content is populated directly from data sources.
